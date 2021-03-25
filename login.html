@@ -1,0 +1,139 @@
+<!-- © MyFideal by Alexis Gagneau -->
+<!-- © Logos by Timéo Privitera -->
+
+<?php
+session_start();
+
+$bdd =new PDO('mysql:host=localhost;dbname=myfideal', 'root', '');
+
+if (isset($_POST['formconnect']))
+{
+    $mailconnect = htmlspecialchars($_POST['mailconnect']);
+    $mdpconnect = sha1($_POST['mdpconnect']);
+
+    if (!empty($mailconnect) AND !empty($mdpconnect))
+    {
+        $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
+        $requser->execute(array($mailconnect, $mdpconnect));
+        $userexist = $requser->rowCount();
+
+        if ($userexist == 1)
+        {
+            $userinfo = $requser->fetch();
+            $_SESSION['id'] = $userinfo['id'];
+
+            header("Location: welcome.php");
+        }
+        else
+        {
+            $erreur = "L'adresse e-mail ou le mot de passe est incorrect !";
+        }
+    }
+    elseif(!empty($mailconnect))
+    {
+        $erreur = "Vous devait rensigner votre mot de passe !";
+    }
+    elseif(!empty($mdpconnect))
+    {
+        $erreur = "Vous devait renseigner votre adresse e-mail !";
+    }
+    else
+    {
+        $erreur ="Tous les champs doivent être complétés !";
+    }
+}
+
+?>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style-login.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <!-- <link rel="icon" type="images/png" sizes="16x16" href="#.png" /> -->
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <title>Connection</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="outer">
+            <div class="loader"></div>
+            <div class="text">
+                <span>Chargement</span>
+            </div>
+        </div>
+    </div>
+    <script src="js/loader.js"></script>
+    
+    <header>
+        <a class="logo" href="index.html"><img src="img/logos/logo.svg" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <!-- <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">About</a></li> -->
+            </ul>
+        </nav>
+        <a class="cta" href="register.php">S'inscrire</a>
+        <a class="menu cta" href="register.php">S'inscrire</a>
+        <!-- <p class="menu cta">Menu</p> -->
+    </header>
+    <!-- <div id="mobile__menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay__content">
+                <a href="#">Services</a>
+                <a href="#">Projects</a>
+                <a href="#">About</a>
+            </div>
+        </div> -->
+    <script type="text/javascript" src="js/navbar.js"></script>
+
+    <div class="login-content">
+        <form method="POST" action="">
+            <h2 class="title">Connexion</h2>
+            <p class="subtitle">Connecter-vous pour ensuite profiter de vos film idéal à tous moment.</p>
+            <br /><br />
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-at"></i>
+                </div>
+                <div class="div">
+                    <h5>E-mail</h5>
+                    <input type="email" class="input" name="mailconnect" />
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Mot de passe</h5>
+                    <input type="password" class="input" name="mdpconnect" />
+                    <div class="password-icon">
+                        <i data-feather="eye"></i>
+                        <i data-feather="eye-off"></i>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn" name="formconnect" value="Se connecter" />
+            <div class="erreur">
+                <?php
+                if (isset($erreur)) {
+                    echo $erreur;
+                }
+                ?>
+            </div>
+        </form>
+    </div>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+    <script type="text/javascript" src="js/eyes-mdp.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+! Si tu pourrais garder ton fichier où tu as réaliser les logos ou sinon me les envoyer s'il te plaît car le titre risque être mis à jour !
+
+1er logo :
+
+	doit obligatoirement comporter le mot "myfideal"
+	taille : 200x100 pixels
+	format : PNG
+
+	police : carte blanche (police lisible)
+	majuscule : carte blanche (sur les lettres que tu veux)
+	taille de l'écriture : carte blanche
+	couleur de l'écriture : carte blanche (la couleur doit symboliser le logo)
+	style de l'écriture : carte blanche (pas obligatoire mais faut qu'elles soit styler et présentable)
+
+	motif : carte blanche (pas obligatoire mais doit avoir un rapport avec le mot de départ)
+	couleur du/des motif(s) : carte blanche (une couleur qui va avec celle de l'écriture)
+	couleur de l'arrière plan : transparent
+
+
+
+2ème logo :
+
+	doit obligatoirement comporter les lettres "M" et "F"
+	taille : 100x100 pixels
+	format : PNG
+
+	police : carte blanche (police lisible)
+	taille de l'écriture : carte blanche
+	couleur de l'écriture : carte blanche (la couleur doit avoir un rapporrt ou être la même que le 1er logo)
+	effet de l'écriture : carte blanche (pas obligatoire mais faut qu'il soit styler et présentable)
+
+	motif : aucun
+	couleur de l'arrière plan : transparent
+
+
+
+*carte blanche = je te laisse le choix, tu fait ce que tu veut.
+*pas obligatoire = tu peux en mettre si tu le veux ou si tu as besoin par rapport au design du logo mais sinon y'a pas besoin.
+
+Si tu as quelque chose que tu comprend pas ou si tu as des questions hésite pas à me demander !

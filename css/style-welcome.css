@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+body {
+  text-align:center;
+  background:linear-gradient(141deg, #303030 25%, #333333 40%, #363636 55%);
+  color:#ccc;
+  font-family:'Roboto';
+  font-weight:300;
+  font-size:32px;
+  padding-top:40vh;
+  height:100vh;
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.bienvenue {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  animation: showup 10s ;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    90% {opacity:1;margin-top: -40vh;}
+    100% {opacity:1;margin-top: -40vh;font-size:60px;letter-spacing:5px}
+}
+
+.txt {
+  padding-top: -1em;
+  padding-right: 3em;
+  padding-left: 3em;
+  font-size: 1.5em;
+  font-weight: 200;
+  margin: 0.4em 0;
+}
